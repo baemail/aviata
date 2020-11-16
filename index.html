@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="index.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./img/logo.svg" alt="">
+        </div>
+        <div class="navigation">
+            <div class="navigation__title">
+                Поиск и бронирование авиабилетов
+            </div>
+            <div class="navigation__items">
+                <div class="navigation__item active">выбор варианта</div>
+                <img src="./img/arrow.png">
+                <div class="navigation__item">пассажиры</div>
+                <img src="./img/arrow.png">
+                <div class="navigation__item">способ оплаты</div>
+                <img src="./img/arrow.png"> 
+                <div class="navigation__item">подтверждение</div>
+            </div>
+        </div>
+        <div class="contacts">
+            <div class="contact__item">+7 (727) <span>22-55-055</span></div>
+            <div class="contact__item">+7 (701) 065-33-33</div>
+            <div class="contact__item">help@aviata.kz</div>
+        </div>
+    </header>
+    <div class="flyDirection">
+        <div class="flyDirection__header">
+            <button class="flyDirection__header__tabs" onclick="openCity(event, 'TwoDirection')">ТУДА И ОБРАТНО</button>
+            <span>|</span>
+            <button class="flyDirection__header__tabs" onclick="openCity(event, 'OneDirection')">В ОДНУ СТОРОНУ</button>
+        </div>
+        <div class="flyDirection__main">
+            <div id="OneDirection" class="tabcontent">
+                <form action="" class="twoDirectionForm">
+                    <div class="wherefrom">
+                        <input list="" id="wherefrom-choice" name="wherefrom-choice" />
+                        <datalist id="wherefrom">
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                        </datalist>
+                    </div>
+                    <img src="./img/twoDirectionArrow.svg" alt="">
+                    <div class="whereto">
+                        <input list="" id="whereto-choice" name="whereto-choice" />
+                        <datalist id="whereto">
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                        </datalist>
+                    </div>
+                    <div class="from-date">
+                        <input type="date" id="from-date" name="birthday" placeholder="Дата отправления">
+                    </div>
+                    <div class="to-date">
+                        <input type="date" id="to-date" name="birthday" placeholder="Дата отправления">
+                    </div>
+                    <div class="class-list">
+                        <input list="" id="class-list-choice" name="class-list-choice" />
+                        <datalist id="class-list">
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                            <option value="Алматы, Казахстан">Алматы, Казахстан</option>
+                        </datalist>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" />
+                    </div>
+                </form>        
+            </div>
+              
+            <div id="Paris" class="tabcontent">
+                <h3>Paris</h3>
+                <p>Paris is the capital of France.</p> 
+            </div>
+            
+            <div id="Tokyo" class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let fromInput = document.getElementById('wherefrom-choice')
+    let fromDatalist = document.getElementById('wherefrom')
+    fromInput.onfocus = function () {
+        fromDatalist.style.display = 'block';
+    }
+
+    for (let option of fromDatalist.options) {
+    option.onclick = function () {
+        fromInput.value = this.value;
+        fromDatalist.style.display = 'none';
+    }
+    }
+
+    fromDatalist.style.width = fromInput.offsetWidth + 'px';
+    fromDatalist.style.left = fromInput.offsetLeft + 'px';
+    fromDatalist.style.top = fromInput.offsetTop + fromInput.offsetHeight + 'px';
+
+    let toInput = document.getElementById('whereto-choice')
+    let toDatalist = document.getElementById('whereto')
+    toInput.onfocus = function () {
+        toDatalist.style.display = 'block';
+    }
+
+    for (let option of toDatalist.options) {
+    option.onclick = function () {
+        toInput.value = this.value;
+        toDatalist.style.display = 'none';
+    }
+    }
+
+    toDatalist.style.width = toInput.offsetWidth + 'px';
+    toDatalist.style.left = toInput.offsetLeft + 'px';
+    toDatalist.style.top = toInput.offsetTop + toInput.offsetHeight + 'px';
+
+    let classListInput = document.getElementById('class-list-choice')
+    let classListDatalist = document.getElementById('class-list')
+    classListInput.onfocus = function () {
+        classListDatalist.style.display = 'block';
+    }
+
+    for (let option of classListDatalist.options) {
+    option.onclick = function () {
+        classListInput.value = this.value;
+        classListDatalist.style.display = 'none';
+    }
+    }
+
+    classListDatalist.style.width = classListInput.offsetWidth + 'px';
+    classListDatalist.style.left = classListInput.offsetLeft + 'px';
+    classListDatalist.style.top = classListInput.offsetTop + classListInput.offsetHeight + 'px';
+    </script>
+</html>
